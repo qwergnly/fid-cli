@@ -1,5 +1,5 @@
 {
-  "name": "fid-cli",
+  "name": "fid-cli-local",
   "version": "1.0.3",
   "description": "yhy",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "cli"
   ],
   "bin": {
-    "fid": "./bin/cli.js"
+    "fid1": "./bin/cli.js"
   },
   "author": "yhy",
   "license": "ISC",
