@@ -5,10 +5,10 @@ let os = require("os");
 let userName = os.userInfo().username;
 let osType = os.type();
 let source = "";
-if (osType == "Darwin") {
-  source = "/usr/local/lib/node_modules/fid-cli/templet/";
-} else {
+if (osType == "Windows_NT") {
   source = `C:\\Users\\${userName}\\AppData\\Roaming\\npm\\node_modules\\fid-cli\\templet\\`;
+} else {
+  source = "/usr/local/lib/node_modules/fid-cli/templet/";
 }
 
 exports.addComponent = function(_name) {
@@ -24,10 +24,10 @@ exports.addComponent = function(_name) {
   let targetFile = `./assets/src/pages/${pageName}/mod/${componentName}`
   let sourceFile = ''
 
-  if (osType == "Darwin") {
-    sourceFile = source+'component/base';
-  } else {
+  if (osType == "Windows_NT") {
     sourceFile = source+'component\\base'
+  } else {
+    sourceFile = source+'component/base';
   }
   fs.readFile(pageFile, "utf8", function(err, data) {
     if (err) {
@@ -53,7 +53,6 @@ exports.addComponent = function(_name) {
       return console.error(err);
     }
     console.log(`${componentName} component has created`);
-    // shell.exec('npm run dev');
   });
 };
 
@@ -67,7 +66,7 @@ exports.addPage = function(_name) {
     if (err) {
       return console.error(err);
     }
-    console.log(`${name} page has created`);
+    console.log(`success! ${name} page has created`);
   });
   fs.copy(source + "page.html", tmlFile, err => {
     if (err) {
@@ -86,8 +85,7 @@ exports.addPage = function(_name) {
         if (err) {
           return console.error(err);
         }
-        console.log(`${name} tml has created`);
-        // shell.exec('npm run dev');
+        console.log(`success! {name} tml has created`);
       });
     });
   });
@@ -99,5 +97,4 @@ function insert_item(str,item,index){
   var estr=str.substring(index-1,str.length);
   newstr+=tmp+item+estr;
   return newstr;
-
 }
