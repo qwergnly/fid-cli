@@ -8,7 +8,7 @@ let source = "";
 if (osType == "Windows_NT") {
   source = `C:\\Users\\${userName}\\AppData\\Roaming\\npm\\node_modules\\fid-cli\\templet\\`;
 } else {
-  source = "/usr/local/lib/node_modules/fid-cli-local/templet/";
+  source = "/usr/local/lib/node_modules/fid-cli/templet/";
 }
 
 exports.addComponent = function(_name) {
